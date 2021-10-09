@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800&display=swap");
+
+$font-stack: "Maven Pro", sans-serif;
+$primary-color: #f5f5f1;
+$secondary-color: #221f1f;
+$primary-highlight-color: #e50914;
+
+body {
+  margin: 0;
+  font-family: $font-stack;
+  background-color: $secondary-color;
+  color: $primary-color;
+
+  // temporary setup
+  height: 500vh;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 90%;
+}

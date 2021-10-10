@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+
+  ul {
+    display: inline-flex;
+    align-items: center;
+
+    li {
+      padding: 0rem 1rem;
+      cursor: pointer;
+    }
+  }
+
+  &__logo {
+    width: 7rem;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

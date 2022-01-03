@@ -9,6 +9,10 @@ $secondary-light-color: #ffffff;
 $secondary-dark-color: #c2c2be;
 $main-theme-color: #e50914;
 
+* { 
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: $font-stack;
@@ -28,4 +32,11 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+img,
+video,
+iframe {
+  max-inline-size: 100%;
+  block-size: auto;
 }

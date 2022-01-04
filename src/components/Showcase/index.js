@@ -9,7 +9,7 @@ const Showcase = ({ trendingMovies }) => {
 
     return <div className="showcase">
         <div className="showcase__content">
-            <h3>{movie.title}</h3>
+            <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
         </div>
         <img src={`${IMAGE_BASE_PATH}original${movie.backdrop_path}`} alt={movie.title} />

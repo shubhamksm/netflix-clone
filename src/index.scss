@@ -35,7 +35,7 @@ html {
     font-size: 70%;
   }
   @include respond(mobile) {
-    font-size: 50%;
+    font-size: 60%;
   }
   @include respond(big-desktop) {
     font-size: 100%;

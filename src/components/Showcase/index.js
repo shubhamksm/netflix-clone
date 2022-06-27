@@ -1,19 +1,23 @@
-import React from 'react';
-import { get } from 'lodash';
-import { IMAGE_BASE_PATH } from '../../api/constants';
-import './Showcase.scss';
+import React, { useEffect, useState } from "react";
+import Frame from "./Frame";
+import { fetchApi } from "../../api/main";
+import "./Showcase.scss";
 
-const Showcase = ({ trendingMovies }) => {
+const Showcase = () => {
+  const [currentFrame, updateFrame] = useState(null);
+  const [movies, setMovies] = useState(null);
 
-    const movie = get(trendingMovies, 'results[0]', {});
+  async function fetchTrendingMovies() {
+    const response = await fetchApi("movie", "trending/movie/day");
+    setMovies(response.results);
+    updateFrame(response.results[0]);
+  }
 
-    return <div className="showcase">
-        <div className="showcase__content">
-            <h1>{movie.title}</h1>
-            <p>{movie.overview}</p>
-        </div>
-        <img src={`${IMAGE_BASE_PATH}original${movie.backdrop_path}`} alt={movie.title} />
-    </div>
-}
+  useEffect(() => {
+    fetchTrendingMovies();
+  }, []);
+
+  return currentFrame && <Frame {...currentFrame} key={currentFrame.id} />;
+};
 
 export default Showcase;

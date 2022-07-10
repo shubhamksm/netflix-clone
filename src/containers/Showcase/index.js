@@ -17,17 +17,15 @@ const Showcase = () => {
   }, []);
 
   return (
-    movies && (
-      <>
-        {movies && (
-          <Carousel pages={5}>
-            {movies.map((movie, index) => (
-              <Frame {...movie} key={index} index={index} />
-            ))}
-          </Carousel>
-        )}
-      </>
-    )
+    <div style={{ height: "100vh" }}>
+      {movies && (
+        <Carousel pages={5}>
+          {movies.map((movie, index) => (
+            <Frame {...movie} key={index} index={index} />
+          ))}
+        </Carousel>
+      )}
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ $secondary-light-color: #ffffff;
 $secondary-dark-color: #c2c2be;
 $main-theme-color: #e50914;
 
-* { 
+* {
   box-sizing: border-box;
 }
 
@@ -32,10 +32,10 @@ html {
     font-size: 90%;
   }
   @include respond(tab-port) {
-    font-size: 70%;
+    font-size: 85%;
   }
   @include respond(mobile) {
-    font-size: 60%;
+    font-size: 80%;
   }
   @include respond(big-desktop) {
     font-size: 100%;

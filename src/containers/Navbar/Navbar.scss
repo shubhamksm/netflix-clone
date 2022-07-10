@@ -2,23 +2,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 2rem;
   position: fixed;
   width: 100%;
   z-index: 1;
+  font-size: 1.25rem;
 
   ul {
     display: inline-flex;
     align-items: center;
 
     li {
-      padding: 0rem 1rem;
+      padding: 0rem 1.25rem;
       cursor: pointer;
     }
   }
 
   &__logo {
-    width: 7rem;
+    width: 10rem;
     img {
       max-width: 100%;
       height: auto;

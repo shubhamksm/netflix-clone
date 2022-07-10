@@ -4,6 +4,12 @@ import Frame from "./Frame";
 import { fetchApi } from "../../api/main";
 import "./Showcase.scss";
 import Button from "./Button";
+import styled from "styled-components";
+
+const StyledFrames = styled.div`
+  transition: transform 0.5s;
+  transform: translateX(${(props) => -(props.currentFrame * 100)}vw);
+`;
 
 const Showcase = () => {
   const [currentFrame, updateFrame] = useState(0);
@@ -22,14 +28,6 @@ const Showcase = () => {
     fetchTrendingMovies();
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      document
-        ?.getElementById(`slide-${currentFrame}`)
-        ?.scrollIntoView({ behavior: "smooth" });
-    }, 200);
-  }, [currentFrame]);
-
   const updateSlide = (dir) => {
     if (dir === "left") {
       updateFrame(currentFrame === 0 ? movies.length - 1 : currentFrame - 1);
@@ -45,11 +43,11 @@ const Showcase = () => {
         <Button dir="right" handleClick={() => updateSlide("right")} />
         <div className="showcase" {...handlers}>
           {movies && (
-            <div className="frames">
+            <StyledFrames className="frames" currentFrame={currentFrame}>
               {movies.map((movie, index) => (
                 <Frame {...movie} key={index} index={index} />
               ))}
-            </div>
+            </StyledFrames>
           )}
         </div>
       </>

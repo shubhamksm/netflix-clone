@@ -19,6 +19,7 @@ body {
   font-family: $font-stack;
   background-color: $primary-color;
   color: $secondary-color;
+  overflow-x: hidden;
 
   // temporary setup
   height: 500vh;
@@ -26,6 +27,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
   // font-size: 90%;
 
   @include respond(tab-land) {

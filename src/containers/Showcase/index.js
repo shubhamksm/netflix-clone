@@ -9,8 +9,8 @@ const Showcase = () => {
   const [currentFrame, updateFrame] = useState(0);
   const [movies, setMovies] = useState(null);
   const handlers = useSwipeable({
-    onSwipedLeft: () => updateSlide("left"),
-    onSwipedRight: () => updateSlide("right"),
+    onSwipedLeft: () => updateSlide("right"),
+    onSwipedRight: () => updateSlide("left"),
   });
 
   async function fetchTrendingMovies() {
@@ -22,6 +22,14 @@ const Showcase = () => {
     fetchTrendingMovies();
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      document
+        ?.getElementById(`slide-${currentFrame}`)
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 200);
+  }, [currentFrame]);
+
   const updateSlide = (dir) => {
     if (dir === "left") {
       updateFrame(currentFrame === 0 ? movies.length - 1 : currentFrame - 1);
@@ -30,17 +38,21 @@ const Showcase = () => {
     }
   };
 
-  const getCurrentMovie = useCallback(() => {
-    return movies && <Frame {...movies[currentFrame]} />;
-  }, [currentFrame, movies]);
-
   return (
     movies && (
-      <div className="showcase" {...handlers}>
+      <>
         <Button dir="left" handleClick={() => updateSlide("left")} />
         <Button dir="right" handleClick={() => updateSlide("right")} />
-        {getCurrentMovie()}
-      </div>
+        <div className="showcase" {...handlers}>
+          {movies && (
+            <div className="frames">
+              {movies.map((movie, index) => (
+                <Frame {...movie} key={index} index={index} />
+              ))}
+            </div>
+          )}
+        </div>
+      </>
     )
   );
 };

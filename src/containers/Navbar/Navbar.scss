@@ -1,3 +1,5 @@
+@import "../../index.scss";
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -7,6 +9,11 @@
   width: 100%;
   z-index: 1;
   font-size: 1.25rem;
+  transition: 1s ease;
+
+  &.--bgDark {
+    background-color: $primary-color;
+  }
 
   ul {
     display: inline-flex;

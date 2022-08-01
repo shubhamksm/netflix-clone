@@ -14,6 +14,7 @@
   );
 
   h1 {
+    margin: 10rem 0rem;
     padding: 0rem 5rem;
     font-size: 3rem;
   }
@@ -27,6 +28,7 @@
   @include respond(mobile) {
     h1 {
       padding: 0rem 2rem;
+      font-size: 2rem;
     }
 
     p {

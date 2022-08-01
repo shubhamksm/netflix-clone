@@ -17,7 +17,7 @@ const Showcase = () => {
   }, []);
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "80vh" }}>
       {movies && (
         <Carousel pages={5}>
           {movies.map((movie, index) => (
